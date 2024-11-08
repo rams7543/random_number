@@ -1,0 +1,22 @@
+:host {
+    display: flex;
+    justify-content: center;
+    padding: 5rem;
+
+    .flex-container {
+      display: flex;
+      gap: 1rem;
+  
+      .mat-label {
+        margin-top: 1rem;
+      }
+  
+      .mat-field {
+        padding-left: 0.75rem;
+      }
+  
+      &.mat-button {
+        justify-content: center;
+      }
+    }
+  }

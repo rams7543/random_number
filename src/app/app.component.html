@@ -1,0 +1,32 @@
+
+  <mat-card appearance="outlined">
+    <mat-card-content>
+      <form [formGroup]="randomForm" (ngSubmit)="formSubmit(randomForm.value)">
+        <div class="flex-container">
+          <mat-label class="mat-label">Favorite number</mat-label>
+          <mat-form-field appearance="outline">
+            <mat-select placeholder="Select number" formControlName="favorite" name="favorite">
+              <mat-option *ngFor="let number of favoriteNumbersList" [value]="number">{{ number }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+  
+        <div class="flex-container">
+          <mat-label class="mat-label">Number length</mat-label>
+          <mat-form-field class="mat-field" appearance="outline">
+            <input matInput type="number" min="1" formControlName="numberLength" name="numberLength" placeholder="Enter number" />
+          </mat-form-field>
+        </div>
+  
+        <div class="flex-container mat-button">
+          <button mat-flat-button type="submit" [disabled]="randomForm.invalid">Submit</button>
+        </div>
+      </form>
+    </mat-card-content>
+  
+    <mat-card-actions class="flex-container mat-button" *ngIf="randomNumber()">
+      <mat-label>Your number is:</mat-label>
+      <mat-hint>{{ randomNumber() }}</mat-hint>
+    </mat-card-actions>
+  </mat-card>
+
